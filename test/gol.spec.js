@@ -11,12 +11,25 @@ function isAlive(x) {
   return x === 1;
 }
 
+function countAlive(neighbours) {
+  return neighbours.filter(isAlive).length;
+}
+
 function lives(iAmAlive, neighbours) {
-  const countAlive = neighbours.filter(isAlive).length;
-  if (countAlive >= 2 && countAlive <= 3) {
-    return true;
+  const numAlive = countAlive(neighbours);
+  let cellLives = false;
+
+  if (iAmAlive) {
+    if (numAlive >= 2 && numAlive <= 3) {
+      cellLives = true;
+    }
+  } else {
+    if (numAlive === 3) {
+      cellLives = true;
+    }
   }
-  return false;
+
+  return cellLives;
 }
 
 // tests
