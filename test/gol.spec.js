@@ -8,6 +8,7 @@ function gol(seed) {
 }
 
 function lives(iAmAlive, neighbours) {
+  return false;
 }
 
 // tests
