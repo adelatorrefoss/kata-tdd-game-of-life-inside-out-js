@@ -103,30 +103,8 @@ describe('A dead cell', () => {
 
   // 4. Any dead cell with exactly three live neighbours
   //   becomes a live cell, as if by reproduction.
-  it('should lives by reproduction', () => {
+  it('should lives by reproduction when exact neighbours', () => {
     const iAmAlive = false;
-    const neighbours = [0, 0, 0, 0, 0, 0, 0, 0];
-
-    const nextIAmAlive = lives(iAmAlive, neighbours);
-
-    expect(nextIAmAlive).to.be.false;
-  });
-
-
-  // 2. Any live cell with two or three live neighbours lives on to the next
-  //   generation.
-  it('should lives when just the number of neighbours', () => {
-    const iAmAlive = true;
-    const neighbours = [1, 1, 0, 0, 0, 0, 0, 0];
-
-    const nextIAmAlive = lives(iAmAlive, neighbours);
-
-    expect(nextIAmAlive).to.be.true;
-  });
-
-
-  it('should lives when just the maximum number of neighbours', () => {
-    const iAmAlive = true;
     const neighbours = [1, 1, 1, 0, 0, 0, 0, 0];
 
     const nextIAmAlive = lives(iAmAlive, neighbours);
@@ -134,14 +112,4 @@ describe('A dead cell', () => {
     expect(nextIAmAlive).to.be.true;
   });
 
-  // 3. Any live cell with more than three live neighbours
-  //  dies, as if by over-population.
-  it('should lives when just the number of neighbours', () => {
-    const iAmAlive = true;
-    const neighbours = [1, 1, 1, 1, 0, 0, 0, 0];
-
-    const nextIAmAlive = lives(iAmAlive, neighbours);
-
-    expect(nextIAmAlive).to.be.false;
-  });
-})
+});
