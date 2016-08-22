@@ -46,6 +46,8 @@ describe("A live cell", function() {
   // beforeEach(function() { });
   // afterEach(function() { });
 
+  // 1. Any live cell with fewer than two live neighbours dies, as if caused
+  //  by under-population.
   it('should die by under population', function() {
     const iAmAlive = true
     const neighbours =[0,0,0, 0, 0, 0,0,0];
@@ -53,5 +55,17 @@ describe("A live cell", function() {
     const nextIAmAlive = lives(iAmAlive, neighbours);
 
     expect(nextIAmAlive).to.be.false;
+  });
+
+
+  // 2. Any live cell with two or three live neighbours lives on to the next
+  //   generation.
+  it('should lives when just the number of neighbours', function() {
+    const iAmAlive = true
+    const neighbours =[1,1,0, 0, 0, 0,0,0];
+
+    const nextIAmAlive = lives(iAmAlive, neighbours);
+
+    expect(nextIAmAlive).to.be.true;
   });
 })
