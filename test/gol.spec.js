@@ -7,7 +7,15 @@ function gol(seed) {
   return emptyGrid;
 }
 
+function isAlive(x) {
+  return x === 1;
+}
+
 function lives(iAmAlive, neighbours) {
+  const countAlive = neighbours.filter(isAlive).length;
+  if (countAlive >= 2 && countAlive <= 3) {
+    return true;
+  }
   return false;
 }
 
