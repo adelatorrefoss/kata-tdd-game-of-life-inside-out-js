@@ -13,7 +13,7 @@ describe("A dead seed", function() {
 
   it('returns a dead grid as well', function() {
     const emptyGrid =[[0,0,0],[0,0,0],[0,0,0]];
-    const seed = [[0,0,0],[0,0,0],[0,0,0]];
+    const seed = emptyGrid;
     const next = gol(seed);
 
     expect(next).to.be.deep.equal(emptyGrid);
