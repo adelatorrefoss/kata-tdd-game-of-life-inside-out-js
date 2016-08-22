@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'src/*.js',
-      'test/*.spec.js'
+      'test/*.spec.js',
     ],
 
 
@@ -28,20 +28,20 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      // 'src/**/*.js': ['babel'],
-      // 'test/**/*.js': ['babel']
+      'src/**/*.js': ['babel'],
+      'test/**/*.js': ['babel'],
     },
     babelPreprocessor: {
       options: {
         presets: ['es2015'],
-        sourceMap: 'inline'
+        sourceMap: 'inline',
       },
       filename: function (file) {
         return file.originalPath.replace(/\.js$/, '.es5.js');
       },
       sourceFileName: function (file) {
         return file.originalPath;
-      }
+      },
     },
 
     // test results reporter to use
@@ -59,7 +59,8 @@ module.exports = function(config) {
 
 
     // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR
+    //   || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_INFO,
 
 
@@ -75,6 +76,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
   });
 };
