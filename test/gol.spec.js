@@ -11,12 +11,11 @@ function isAlive(x) {
   return x === 1;
 }
 
-function countAlive(neighbours) {
-  return neighbours.filter(isAlive).length;
-}
+// function countAlive(neighbours) {
+//   return neighbours.filter(isAlive).length;
+// }
 
-function lives(iAmAlive, neighbours) {
-  const numAlive = countAlive(neighbours);
+function lives(iAmAlive, numAlive) {
   let cellLives = false;
 
   if (iAmAlive) {
@@ -69,7 +68,7 @@ describe('A live cell', () => {
   //  by under-population.
   it('should die by under population', () => {
     const iAmAlive = true;
-    const neighbours = [0, 0, 0, 0, 0, 0, 0, 0];
+    const neighbours = 0;
 
     const nextIAmAlive = lives(iAmAlive, neighbours);
 
@@ -81,9 +80,9 @@ describe('A live cell', () => {
   //   generation.
   it('should lives when just the number of neighbours', () => {
     const iAmAlive = true;
-    const neighbours = [1, 1, 0, 0, 0, 0, 0, 0];
+    const numNeighbours = 2;
 
-    const nextIAmAlive = lives(iAmAlive, neighbours);
+    const nextIAmAlive = lives(iAmAlive, numNeighbours);
 
     expect(nextIAmAlive).to.be.true;
   });
@@ -91,9 +90,9 @@ describe('A live cell', () => {
 
   it('should lives when just the maximum number of neighbours', () => {
     const iAmAlive = true;
-    const neighbours = [1, 1, 1, 0, 0, 0, 0, 0];
+    const numNeighbours = 3;
 
-    const nextIAmAlive = lives(iAmAlive, neighbours);
+    const nextIAmAlive = lives(iAmAlive, numNeighbours);
 
     expect(nextIAmAlive).to.be.true;
   });
@@ -102,9 +101,9 @@ describe('A live cell', () => {
   //  dies, as if by over-population.
   it('should lives when just the number of neighbours', () => {
     const iAmAlive = true;
-    const neighbours = [1, 1, 1, 1, 0, 0, 0, 0];
+    const numNeighbours = 4;
 
-    const nextIAmAlive = lives(iAmAlive, neighbours);
+    const nextIAmAlive = lives(iAmAlive, numNeighbours);
 
     expect(nextIAmAlive).to.be.false;
   });
@@ -118,9 +117,9 @@ describe('A dead cell', () => {
   //   becomes a live cell, as if by reproduction.
   it('should lives by reproduction when exact neighbours', () => {
     const iAmAlive = false;
-    const neighbours = [1, 1, 1, 0, 0, 0, 0, 0];
+    const numNeighbours = 3;
 
-    const nextIAmAlive = lives(iAmAlive, neighbours);
+    const nextIAmAlive = lives(iAmAlive, numNeighbours);
 
     expect(nextIAmAlive).to.be.true;
   });
@@ -128,9 +127,9 @@ describe('A dead cell', () => {
   it('should remains dead by reproduction when less than exact neighbours',
      () => {
        const iAmAlive = false;
-       const neighbours = [1, 1, 0, 0, 0, 0, 0, 0];
+       const numNeighbours = 2;
 
-       const nextIAmAlive = lives(iAmAlive, neighbours);
+       const nextIAmAlive = lives(iAmAlive, numNeighbours);
 
        expect(nextIAmAlive).to.be.false;
      });
