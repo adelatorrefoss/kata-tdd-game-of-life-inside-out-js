@@ -76,4 +76,14 @@ describe("A live cell", function() {
 
     expect(nextIAmAlive).to.be.true;
   });
+
+
+  it('should lives when just the maximum number of neighbours', function() {
+    const iAmAlive = true
+    const neighbours =[1,1,1, 0, 0, 0,0,0];
+
+    const nextIAmAlive = lives(iAmAlive, neighbours);
+
+    expect(nextIAmAlive).to.be.true;
+  });
 })
