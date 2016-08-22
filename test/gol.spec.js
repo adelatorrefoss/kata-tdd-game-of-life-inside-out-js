@@ -112,4 +112,13 @@ describe('A dead cell', () => {
     expect(nextIAmAlive).to.be.true;
   });
 
+  it('should remains dead by reproduction when less than exact neighbours',
+     () => {
+       const iAmAlive = false;
+       const neighbours = [1, 1, 0, 0, 0, 0, 0, 0];
+
+       const nextIAmAlive = lives(iAmAlive, neighbours);
+
+       expect(nextIAmAlive).to.be.false;
+     });
 });
