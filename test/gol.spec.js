@@ -84,9 +84,6 @@ describe('Given a single cell that is', () => {
   });
 
   describe('A dead cell', () => {
-    // beforeEach(function() { });
-    // afterEach(function() { });
-
     // 4. Any dead cell with exactly three live neighbours
     //   becomes a live cell, as if by reproduction.
     it('should lives by reproduction when exact neighbours', () => {
@@ -123,9 +120,6 @@ describe('Given a single cell that is', () => {
 
 describe('Given a grid that is', () => {
   describe('a grid all dead', () => {
-    // beforeEach(function() { });
-    // afterEach(function() { });
-
     it('returns a dead grid as well', () => {
       const seed = emptyGrid;
       const next = gol(seed);
@@ -134,15 +128,32 @@ describe('Given a grid that is', () => {
     });
   });
 
-  describe('A single live cell', () => {
-    // beforeEach(function() { });
-    // afterEach(function() { });
-
+  describe('a single live cell', () => {
     it('should die', () => {
       const seed = [[0, 0, 0], [0, 1, 0], [0, 0, 0]];
       const next = gol(seed);
 
       expect(next).to.be.deep.equal(emptyGrid);
+    });
+  });
+
+  describe('a single live cell', () => {
+    it('should die', () => {
+      const seed = [[0, 0, 0], [0, 1, 0], [0, 0, 0]];
+      const next = gol(seed);
+
+      expect(next).to.be.deep.equal(emptyGrid);
+    });
+  });
+
+  // 2 cells not neighbours
+
+  describe('a minimal live config', () => {
+    it('should lives ', () => {
+      const seed = [[0, 0, 0], [1, 1, 1], [0, 0, 0]];
+      const next = gol(seed);
+
+      expect(next).to.be.deep.equal([[0, 0, 0], [0, 1, 0], [0, 0, 0]]);
     });
   });
 });
