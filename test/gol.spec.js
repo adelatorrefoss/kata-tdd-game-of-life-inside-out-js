@@ -33,37 +33,6 @@ function lives(iAmAlive, numAlive) {
 
 // tests
 
-
-describe('Given a grid that is', () => {
-
-  describe('a grid all dead', () => {
-    // beforeEach(function() { });
-    // afterEach(function() { });
-
-    it('returns a dead grid as well', () => {
-      const seed = emptyGrid;
-      const next = gol(seed);
-
-      expect(next).to.be.deep.equal(emptyGrid);
-    });
-  });
-});
-
-
-// TODO: no RED
-
-// describe("A single live cell", function() {
-//   // beforeEach(function() { });
-//   // afterEach(function() { });
-
-//   it('should die', function() {
-//     const seed =[[0,0,0],[0,1,0],[0,0,0]];
-//     const next = gol(seed);
-
-//     expect(next).to.be.deep.equal(emptyGrid);
-//   });
-// })
-
 describe('Given a single cell that is', () => {
   describe('A live cell', () => {
     // beforeEach(function() { });
@@ -137,7 +106,7 @@ describe('Given a single cell that is', () => {
          const nextIAmAlive = lives(iAmAlive, numNeighbours);
 
          expect(nextIAmAlive).to.be.false;
-       })
+       });
 
     it('should remains dead by reproduction when more than exact neighbours',
        () => {
@@ -148,5 +117,32 @@ describe('Given a single cell that is', () => {
 
          expect(nextIAmAlive).to.be.false;
        });
+  });
+});
+
+
+describe('Given a grid that is', () => {
+  describe('a grid all dead', () => {
+    // beforeEach(function() { });
+    // afterEach(function() { });
+
+    it('returns a dead grid as well', () => {
+      const seed = emptyGrid;
+      const next = gol(seed);
+
+      expect(next).to.be.deep.equal(emptyGrid);
+    });
+  });
+
+  describe('A single live cell', () => {
+    // beforeEach(function() { });
+    // afterEach(function() { });
+
+    it('should die', () => {
+      const seed = [[0, 0, 0], [0, 1, 0], [0, 0, 0]];
+      const next = gol(seed);
+
+      expect(next).to.be.deep.equal(emptyGrid);
+    });
   });
 });
