@@ -28,24 +28,34 @@ function lives(iAmAlive, numAlive) {
 }
 
 function getNeighbours(i, j, grid) {
-  const numRows = grid.length;
-  const numCols = grid[0].length;
-
-  const isValidPosition = (x, y) => {
-    if (x >= 0 && x < numRows && y >= 0 && y < numCols) {
-      return true;
-    }
-    return false;
-  };
+  // const numRows = grid.length;
+  // const numCols = grid[0].length;
 
   const neighbours = [];
-  for (let m = -1; m === 1; m++) {
-    for (let n = -1; n === 1; n++) {
-      if (isValidPosition(i + m, j + n)) {
-        neighbours.push(grid[i + m][j + n]);
-      }
-    }
-  }
+  neighbours.push(grid[i - 1][j - 1]);
+  neighbours.push(grid[i - 1][j]);
+  neighbours.push(grid[i - 1][j + 1]);
+  neighbours.push(grid[i][j - 1]);
+  neighbours.push(grid[i][j + 1]);
+  neighbours.push(grid[i + 1][j - 1]);
+  neighbours.push(grid[i + 1][j]);
+  neighbours.push(grid[i + 1][j + 1]);
+
+  // const isValidPosition = (x, y) => {
+  //   if (x >= 0 && x < numRows && y >= 0 && y < numCols) {
+  //     return true;
+  //   }
+  //   return false;
+  // };
+
+  // const neighbours = [];
+  // for (let m = -1; m === 1; m++) {
+  //   for (let n = -1; n === 1; n++) {
+  //     if (isValidPosition(i + m, j + n)) {
+  //       neighbours.push(grid[i + m][j + n]);
+  //     }
+  //   }
+  // }
   return neighbours;
 }
 
@@ -193,7 +203,7 @@ describe('Given a grid that is', () => {
   describe('a neighbourhood with single cell', () => {
     it('returns all neighbours are false', () => {
       const seed = [[false, false, false],
-                    [true, true, true],
+                    [false, true, false],
                     [false, false, false]];
       const neighbours = getNeighbours(1, 1, seed);
 
