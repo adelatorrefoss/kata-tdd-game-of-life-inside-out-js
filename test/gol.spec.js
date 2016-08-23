@@ -1,19 +1,17 @@
 // Game of Life
 
-const emptyGrid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+chai.config.truncateThreshold = 0;
+
+
+const emptyGrid = [[false, false, false],
+                   [false, false, false],
+                   [false, false, false]];
 
 // production code
-function gol(seed) {
-  return emptyGrid;
+
+function countAlive(neighbours) {
+  return neighbours.filter(x => x).length;
 }
-
-// function isAlive(x) {
-//   return x === 1;
-// }
-
-// function countAlive(neighbours) {
-//   return neighbours.filter(isAlive).length;
-// }
 
 function lives(iAmAlive, numAlive) {
   let cellLives = false;
@@ -22,13 +20,30 @@ function lives(iAmAlive, numAlive) {
     if (numAlive >= 2 && numAlive <= 3) {
       cellLives = true;
     }
-  } else {
-    if (numAlive === 3) {
-      cellLives = true;
-    }
+  } else if (numAlive === 3) {
+    cellLives = true;
   }
 
   return cellLives;
+}
+
+function nextGol(seed) {
+  const next = [];
+
+  for (let i = 0; i < seed.length; i++) {
+    const nextRow = [];
+
+    for (let j = 0; j < seed[i].length; j++) {
+      const x = seed[i][j];
+      // const neighbours = getNeighbours(x);
+      const neighbours = [true, true];
+      const nextX = lives(x, countAlive(neighbours));
+      nextRow.push(nextX);
+    }
+
+    next.push(nextRow);
+  }
+  return next;
 }
 
 // tests
@@ -46,7 +61,7 @@ describe('Given a single cell that is', () => {
 
       const nextIAmAlive = lives(iAmAlive, neighbours);
 
-      expect(nextIAmAlive).to.be.false();
+      expect(nextIAmAlive).to.be.false;
     });
 
 
@@ -122,7 +137,7 @@ describe('Given a grid that is', () => {
   describe('a grid all dead', () => {
     it('returns a dead grid as well', () => {
       const seed = emptyGrid;
-      const next = gol(seed);
+      const next = nextGol(seed);
 
       expect(next).to.be.deep.equal(emptyGrid);
     });
@@ -130,30 +145,27 @@ describe('Given a grid that is', () => {
 
   describe('a single live cell', () => {
     it('should die', () => {
-      const seed = [[0, 0, 0], [0, 1, 0], [0, 0, 0]];
-      const next = gol(seed);
+      const seed = [[false, false, false],
+                    [false, true, false],
+                    [false, false, false]];
+      const next = nextGol(seed);
 
       expect(next).to.be.deep.equal(emptyGrid);
     });
   });
 
-  describe('a single live cell', () => {
-    it('should die', () => {
-      const seed = [[0, 0, 0], [0, 1, 0], [0, 0, 0]];
-      const next = gol(seed);
-
-      expect(next).to.be.deep.equal(emptyGrid);
-    });
-  });
-
-  // 2 cells not neighbours
+  // TODO: 2 cells not neighbours
 
   describe('a minimal live config', () => {
     it('should lives ', () => {
-      const seed = [[0, 0, 0], [1, 1, 1], [0, 0, 0]];
-      const next = gol(seed);
+      const seed = [[false, false, false],
+                    [true, true, true],
+                    [false, false, false]];
+      const next = nextGol(seed);
 
-      expect(next).to.be.deep.equal([[0, 0, 0], [0, 1, 0], [0, 0, 0]]);
+      expect(next).to.be.deep.equal([[false, false, false],
+                                     [false, true, false],
+                                     [false, false, false]]);
     });
   });
 });
