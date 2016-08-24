@@ -107,3 +107,5 @@ function evolution(seed, print) {
 // if (require.main === module) {
 //   main();
 // }
+
+export { emptyGrid, evolution, nextGol, getNeighbours, lives };

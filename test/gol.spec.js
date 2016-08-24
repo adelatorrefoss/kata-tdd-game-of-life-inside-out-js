@@ -2,6 +2,8 @@
 
 chai.config.truncateThreshold = 0;
 
+import { emptyGrid, evolution, nextGol, getNeighbours, lives } from '../src/gol';
+
 // tests
 
 describe('Given a single cell that is', () => {

@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai', 'sinon'],
+    frameworks: ['browserify', 'mocha', 'chai', 'sinon'],
 
 
     // list of files / patterns to load in the browser
@@ -25,24 +25,16 @@ module.exports = function(config) {
     exclude: [
     ],
 
-
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.js': ['babel'],
-      'test/**/*.js': ['babel'],
+      'src/**/*.js': ['browserify'],
+      'test/**/*.js': ['browserify'],
     },
-    babelPreprocessor: {
-      options: {
-        presets: ['es2015'],
-        sourceMap: 'inline',
-      },
-      filename: function (file) {
-        return file.originalPath.replace(/\.js$/, '.es5.js');
-      },
-      sourceFileName: function (file) {
-        return file.originalPath;
-      },
+
+    browserify: {
+      debug: true,
+      transform: [['babelify', { presets: 'es2015' }]],
     },
 
     // test results reporter to use
