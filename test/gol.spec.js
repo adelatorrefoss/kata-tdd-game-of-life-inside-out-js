@@ -203,13 +203,13 @@ describe('Given a grid that is', () => {
 
 describe('A evolution with', () => {
   describe('a minimal live seed ', () => {
-    it('should evolve accordly', () => {
+    it('should evolve accordly and dead in three', () => {
       const seed = [[false, false, false],
                     [true, true, true],
                     [false, false, false]];
       const next = evolution(seed);
 
-      expect(next).to.be.deep.equal(emptyGrid);
+      expect(next).to.be.deep.equal([emptyGrid, 3]);
     });
   });
 });
