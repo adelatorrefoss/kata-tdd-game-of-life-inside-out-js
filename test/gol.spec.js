@@ -215,7 +215,18 @@ describe('Given a grid that is', () => {
     });
   });
 
-  // // TODO: 2 cells not neighbours
+  describe('two cells', () => {
+    it('should dead ', () => {
+      const seed = [[false, false, false],
+                    [true, true, false],
+                    [false, false, false]];
+      const next = nextGol(seed);
+
+      expect(next).to.be.deep.equal([[false, false, false],
+                                     [false, false, false],
+                                     [false, false, false]]);
+    });
+  });
 
   describe('a minimal live config', () => {
     it('should lives ', () => {
