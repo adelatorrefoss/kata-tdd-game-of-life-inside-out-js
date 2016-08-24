@@ -250,4 +250,20 @@ describe('A evolution with', () => {
       expect(next).to.be.deep.equal([seed, 10]);
     });
   });
+
+  describe('a grid of size six and 50 iterations', () => {
+    it('should evolve', () => {
+      const seed = [
+        [false, false, false, false, false, false],
+        [true, true, true, false, false, false],
+        [false, false, false, false, false, false],
+        [false, false, false, false, true, false],
+        [false, false, false, false, true, false],
+        [false, false, false, false, true, false],
+      ];
+      const next = evolution(seed, 50);
+
+      expect(next).to.be.deep.equal([seed, 50]);
+    });
+  });
 });
