@@ -266,4 +266,20 @@ describe('A evolution with', () => {
       expect(next).to.be.deep.equal([seed, 50]);
     });
   });
+
+  describe('a grid with an arrow', () => {
+    it('should evolve', () => {
+      const seed = [
+        [false, true, false, false, false, false],
+        [true, true, true, false, false, false],
+        [false, false, false, false, false, false],
+        [false, false, false, false, false, false],
+        [false, false, false, false, false, false],
+        [false, false, false, false, false, false],
+      ];
+      const next = evolution(seed, 50, true);
+
+      expect(next).to.be.deep.equal([seed, 50]);
+    });
+  });
 });

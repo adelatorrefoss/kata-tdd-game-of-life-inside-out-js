@@ -71,8 +71,13 @@ function nextGol(seed) {
 
 function printGrid(grid, iteration) {
   console.log(`>> it ${iteration}`);
-  grid.forEach((x) => {
-    console.log(x);
+  grid.forEach((row) => {
+    console.log(row.map( (x) => {
+      if (x) {
+        return 'o';
+      }
+      return '-';
+      }).toString());
   });
 }
 
