@@ -203,7 +203,7 @@ describe('Given a grid that is', () => {
 
 describe('A evolution with', () => {
   describe('a minimal live seed ', () => {
-    it('should evolve accordly and dead in three', () => {
+    it('should not finish', () => {
       const seed = [[false, false, false],
                     [true, true, true],
                     [false, false, false]];
@@ -211,7 +211,7 @@ describe('A evolution with', () => {
 
       expect(next).to.be.deep.equal([seed, 10]);
     });
-  })
+  });
 
   describe('a grid with single cell ', () => {
     it('should dead in one', () => {
@@ -221,6 +221,17 @@ describe('A evolution with', () => {
       const next = evolution(seed);
 
       expect(next).to.be.deep.equal([emptyGrid, 1]);
+    });
+  });
+
+  describe('a grid with a square ', () => {
+    it('should be stable', () => {
+      const seed = [[true, true, false],
+                    [true, true, false],
+                    [false, false, false]];
+      const next = evolution(seed);
+
+      expect(next).to.be.deep.equal([seed, 10]);
     });
   });
 });
