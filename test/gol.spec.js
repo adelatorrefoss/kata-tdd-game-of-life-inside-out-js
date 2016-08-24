@@ -167,41 +167,6 @@ describe('Given a single cell that is', () => {
 
 
 describe('Given a grid that is', () => {
-  // describe('a grid all dead', () => {
-  //   it('returns a dead grid as well', () => {
-  //     const seed = emptyGrid;
-  //     const next = nextGol(seed);
-
-  //     expect(next).to.be.deep.equal(emptyGrid);
-  //   });
-  // });
-
-  // describe('a single live cell', () => {
-  //   it('should die', () => {
-  //     const seed = [[false, false, false],
-  //                   [false, true, false],
-  //                   [false, false, false]];
-  //     const next = nextGol(seed);
-
-  //     expect(next).to.be.deep.equal(emptyGrid);
-  //   });
-  // });
-
-  // // TODO: 2 cells not neighbours
-
-  // describe('a minimal live config', () => {
-  //   it('should lives ', () => {
-  //     const seed = [[false, false, false],
-  //                   [true, true, true],
-  //                   [false, false, false]];
-  //     const next = nextGol(seed);
-
-  //     expect(next).to.be.deep.equal([[false, false, false],
-  //                                    [false, true, false],
-  //                                    [false, false, false]]);
-  //   });
-  // });
-
   describe('a neighbourhood with single cell in the middle', () => {
     it('returns all neighbours are false', () => {
       const seed = [[false, false, false],
@@ -237,5 +202,42 @@ describe('Given a grid that is', () => {
 
       expect(neighbours).to.be.deep.equal([true, true, true]);
     });
-  })
+  });
+
+
+  describe('a grid all dead', () => {
+    it('returns a dead grid as well', () => {
+      const seed = emptyGrid;
+      const next = nextGol(seed);
+
+      expect(next).to.be.deep.equal(emptyGrid);
+    });
+  });
+
+  // describe('a single live cell', () => {
+  //   it('should die', () => {
+  //     const seed = [[false, false, false],
+  //                   [false, true, false],
+  //                   [false, false, false]];
+  //     const next = nextGol(seed);
+
+  //     expect(next).to.be.deep.equal(emptyGrid);
+  //   });
+  // });
+
+  // // TODO: 2 cells not neighbours
+
+  // describe('a minimal live config', () => {
+  //   it('should lives ', () => {
+  //     const seed = [[false, false, false],
+  //                   [true, true, true],
+  //                   [false, false, false]];
+  //     const next = nextGol(seed);
+
+  //     expect(next).to.be.deep.equal([[false, false, false],
+  //                                    [false, true, false],
+  //                                    [false, false, false]]);
+  //   });
+  // });
+
 });
