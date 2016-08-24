@@ -200,7 +200,7 @@ describe('Given a grid that is', () => {
   //   });
   // });
 
-  describe('a neighbourhood with single cell', () => {
+  describe('a neighbourhood with single cell in the middle', () => {
     it('returns all neighbours are false', () => {
       const seed = [[false, false, false],
                     [false, true, false],
@@ -208,8 +208,21 @@ describe('Given a grid that is', () => {
       const neighbours = getNeighbours(1, 1, seed);
 
       expect(neighbours).to.be.deep.equal([false, false, false,
-                                     false, false,
-                                     false, false, false]);
+                                           false, false,
+                                           false, false, false]);
+    });
+  });
+
+  describe('a neighbourhood with a cell in the middle and some sorrounding', () => {
+    it('returns neighbours', () => {
+      const seed = [[true, false, true],
+                    [true, true, true],
+                    [true, false, true]];
+      const neighbours = getNeighbours(1, 1, seed);
+
+      expect(neighbours).to.be.deep.equal([true, false, true,
+                                           true, true,
+                                           true, false, true]);
     });
   });
 });
