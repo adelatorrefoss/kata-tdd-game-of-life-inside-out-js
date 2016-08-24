@@ -240,4 +240,17 @@ describe('Given a grid that is', () => {
                                      [false, true, false]]);
     });
   });
+
+  describe('a full grid', () => {
+    it('should evolve accordly', () => {
+      const seed = [[true, true, true],
+                    [true, true, true],
+                    [true, true, true]];
+      const next = nextGol(seed);
+
+      expect(next).to.be.deep.equal([[true, false, true],
+                                     [false, false, false],
+                                     [true, false, true]]);
+    });
+  });
 });
