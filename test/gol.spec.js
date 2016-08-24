@@ -228,14 +228,14 @@ describe('Given a grid that is', () => {
     });
   });
 
-  //   describe('a neighbourhood with a cell in the upper left corner and some sorrounding', () => {
-  //   it('returns neighbours', () => {
-  //     const seed = [[true, true, true],
-  //                   [true, true, true],
-  //                   [true, false, true]];
-  //     const neighbours = getNeighbours(0, 0, seed);
+  describe('a neighbourhood with a cell in the upper left corner and some sorrounding', () => {
+    it('returns neighbours', () => {
+      const seed = [[true, true, true],
+                    [true, true, true],
+                    [true, false, true]];
+      const neighbours = getNeighbours(0, 0, seed);
 
-  //     expect(neighbours).to.be.deep.equal([true, true, true]);
-  //   });
-  // })
+      expect(neighbours).to.be.deep.equal([true, true, true]);
+    });
+  })
 });
