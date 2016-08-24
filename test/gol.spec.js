@@ -31,16 +31,6 @@ function getNeighbours(i, j, grid) {
   const numRows = grid.length;
   const numCols = grid[0].length;
 
-   // const neighbours = [];
-  // neighbours.push(grid[i - 1][j - 1]);
-  // neighbours.push(grid[i - 1][j]);
-  // neighbours.push(grid[i - 1][j + 1]);
-  // neighbours.push(grid[i][j - 1]);
-  // neighbours.push(grid[i][j + 1]);
-  // neighbours.push(grid[i + 1][j - 1]);
-  // neighbours.push(grid[i + 1][j]);
-  // neighbours.push(grid[i + 1][j + 1]);
-
   const isValidPosition = (x, y) => {
     if (x >= 0 && x < numRows && y >= 0 && y < numCols) {
       return true;
