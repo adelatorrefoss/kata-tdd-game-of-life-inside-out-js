@@ -224,10 +224,9 @@ describe('Given a grid that is', () => {
                     [false, false, false]];
       const next = nextGol(seed);
 
-      expect(next).to.be.deep.equal([[false, false, false],
+      expect(next).to.be.deep.equal([[false, true, false],
                                      [false, true, false],
-                                     [false, false, false]]);
+                                     [false, true, false]]);
     });
   });
-
 });
