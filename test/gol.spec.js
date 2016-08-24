@@ -209,7 +209,7 @@ describe('A evolution with', () => {
                     [false, false, false]];
       const next = evolution(seed);
 
-      expect(next).to.be.deep.equal([seed, 10]);
+      expect(next).to.be.deep.equal([seed, 100]);
     });
   });
 
@@ -220,7 +220,7 @@ describe('A evolution with', () => {
                     [false, false, false]];
       const next = evolution(seed);
 
-      expect(next).to.be.deep.equal([emptyGrid, 1]);
+      expect(next).to.be.deep.equal([emptyGrid, 2]);
     });
   });
 
@@ -231,7 +231,7 @@ describe('A evolution with', () => {
                     [false, false, false]];
       const next = evolution(seed);
 
-      expect(next).to.be.deep.equal([seed, 10]);
+      expect(next).to.be.deep.equal([seed, 1]);
     });
   });
 
@@ -247,23 +247,7 @@ describe('A evolution with', () => {
       ];
       const next = evolution(seed);
 
-      expect(next).to.be.deep.equal([seed, 10]);
-    });
-  });
-
-  describe('a grid of size six and 50 iterations', () => {
-    it('should evolve', () => {
-      const seed = [
-        [false, false, false, false, false, false],
-        [true, true, true, false, false, false],
-        [false, false, false, false, false, false],
-        [false, false, false, false, true, false],
-        [false, false, false, false, true, false],
-        [false, false, false, false, true, false],
-      ];
-      const next = evolution(seed, 50);
-
-      expect(next).to.be.deep.equal([seed, 50]);
+      expect(next).to.be.deep.equal([seed, 100]);
     });
   });
 
@@ -277,9 +261,39 @@ describe('A evolution with', () => {
         [false, false, false, false, false, false],
         [false, false, false, false, false, false],
       ];
-      const next = evolution(seed, 50, true);
+      const next = evolution(seed);
 
-      expect(next).to.be.deep.equal([seed, 50]);
+      expect(next).to.be.deep.equal([[
+        [false, false, false, false, false, false],
+        [false, false, false, false, false, false],
+        [false, false, false, false, false, false],
+        [false, false, false, false, false, false],
+        [false, false, false, false, false, false],
+        [false, false, false, false, false, false],
+      ], 24]);
+    });
+
+    describe('a grid with a concrete form', () => {
+      it('should evolve', () => {
+        const seed = [
+          [true, false, true, false, false, false],
+          [false, true, true, false, false, false],
+          [false, true, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+        ];
+        const next = evolution(seed);
+
+        expect(next).to.be.deep.equal([[
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, true, true],
+          [false, false, false, false, true, true],
+        ], 17]);
+      });
     });
   });
 });

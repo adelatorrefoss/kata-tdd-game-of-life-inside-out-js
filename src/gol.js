@@ -81,11 +81,13 @@ function printGrid(grid, iteration) {
   });
 }
 
-function evolution(seed, iterations = 10, print = false) {
+function evolution(seed, print = false) {
   let i = 0;
+  let prev = seed;
   let next = seed;
   if (print) printGrid(next, 'SEED');
-  while (!R.equals(next, emptyGrid) && i < iterations) {
+  while ((!R.equals(next, prev) && i < 100) || i === 0) {
+    prev = next;
     next = nextGol(next);
     i++;
     if (print) printGrid(next, i);
