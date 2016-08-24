@@ -68,18 +68,13 @@ function nextGol(seed) {
   }
   return next;
 }
-
 function evolution(seed) {
   let i = 0;
-  // let next = seed;
-  // while (!R.equals(next, emptyGrid)) {
-  //   next = nextGol(next);
-  //   i++;
-  // }
+  let next = seed;
+  while (!R.equals(next, emptyGrid) && i < 10) {
+    next = nextGol(next);
+    i++;
+  }
 
-  return [emptyGrid, 3];
-
-  // return [seed, i];
+  return [next, i];
 }
-
-// export { evolution, nextGol, getNeighbours, lives };

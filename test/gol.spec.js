@@ -209,7 +209,7 @@ describe('A evolution with', () => {
                     [false, false, false]];
       const next = evolution(seed);
 
-      expect(next).to.be.deep.equal([emptyGrid, 3]);
+      expect(next).to.be.deep.equal([emptyGrid, 10]);
     });
   })
 
