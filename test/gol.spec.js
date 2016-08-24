@@ -51,11 +51,11 @@ function getNeighbours(i, j, grid) {
   const neighbours = [];
   for (let m = -1; m <= 1; m++) {
     for (let n = -1; n <= 1; n++) {
-      // if (isValidPosition(i + m, j + n)) {
-      if (!(m === 0 && n === 0)) {
-        neighbours.push(grid[i + m][j + n]);
+      if (isValidPosition(i + m, j + n)) {
+        if (!(m === 0 && n === 0)) {
+          neighbours.push(grid[i + m][j + n]);
+        }
       }
-      // }
     }
   }
   return neighbours;
