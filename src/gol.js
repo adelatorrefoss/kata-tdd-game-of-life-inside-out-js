@@ -77,11 +77,13 @@ function printGrid(grid, iteration) {
         return 'o';
       }
       return '-';
-      }).toString());
+    }).toString());
   });
 }
 
-function evolution(seed, print = false) {
+function evolution(seed, print) {
+  print = typeof print !== 'undefined' ? print : false;
+
   let i = 0;
   let prev = seed;
   let next = seed;
@@ -95,3 +97,13 @@ function evolution(seed, print = false) {
 
   return [next, i];
 }
+
+// const main = () => {
+//   process.argv.forEach((val, index) => {
+//     console.log(`${index}: ${val}`);
+//   });
+// };
+
+// if (require.main === module) {
+//   main();
+// }
