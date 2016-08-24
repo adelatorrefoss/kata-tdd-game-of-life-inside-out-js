@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       'src/*.js',
       'test/*.spec.js',
+      // 'node_modules/ramda/dist/ramda',
     ],
 
 

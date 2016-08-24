@@ -211,5 +211,16 @@ describe('A evolution with', () => {
 
       expect(next).to.be.deep.equal([emptyGrid, 3]);
     });
+  })
+
+  describe('a grid with single cell ', () => {
+    it('should dead in one', () => {
+      const seed = [[false, false, false],
+                    [false, true, false],
+                    [false, false, false]];
+      const next = evolution(seed);
+
+      expect(next).to.be.deep.equal([emptyGrid, 1]);
+    });
   });
 });
