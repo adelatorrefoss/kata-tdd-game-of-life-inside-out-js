@@ -68,12 +68,22 @@ function nextGol(seed) {
   }
   return next;
 }
+
+function printGrid(grid, iteration) {
+  console.log(`>> it ${iteration}`);
+  grid.forEach((x) => {
+    console.log(x);
+  });
+}
+
 function evolution(seed) {
   let i = 0;
   let next = seed;
+  printGrid(next, 'SEED');
   while (!R.equals(next, emptyGrid) && i < 10) {
     next = nextGol(next);
     i++;
+    printGrid(next, i);
   }
 
   return [next, i];
