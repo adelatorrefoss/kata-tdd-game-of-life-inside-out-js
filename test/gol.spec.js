@@ -201,21 +201,15 @@ describe('Given a grid that is', () => {
   });
 });
 
-// describe('A evolution with', () => {
-//   describe('a minimal live seed ', () => {
-//     it('should evolve accordly', () => {
-//       const seed = [[false, false, false],
-//                     [true, true, true],
-//                     [false, false, false]];
-//       const next = nextGol(seed);
+describe('A evolution with', () => {
+  describe('a minimal live seed ', () => {
+    it('should evolve accordly', () => {
+      const seed = [[false, false, false],
+                    [true, true, true],
+                    [false, false, false]];
+      const next = evolution(seed);
 
-//       expect(next).to.be.deep.equal([[false, true, false],
-//                                      [false, true, false],
-//                                      [false, true, false]]);
-
-//       expect(next).to.be.deep.equal([[false, false, false],
-//                                      [false, false, false],
-//                                      [false, false, false]]);
-//     });
-//   });
-// });
+      expect(next).to.be.deep.equal(emptyGrid);
+    });
+  });
+});
