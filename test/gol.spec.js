@@ -186,19 +186,36 @@ describe('Given a grid that is', () => {
                                      [true, false, true]]);
     });
   });
-});
 
-describe('A evolution with', () => {
-  describe('a seed ', () => {
-    it('should evolve accordly', () => {
-      const seed = [[true, true, true],
-                    [true, true, true],
-                    [true, true, true]];
+  describe('a square', () => {
+    it('should be stable', () => {
+      const seed = [[true, true, false],
+                    [true, true, false],
+                    [false, false, false]];
       const next = nextGol(seed);
 
-      expect(next).to.be.deep.equal([[true, false, true],
-                                     [false, false, false],
-                                     [true, false, true]]);
+      expect(next).to.be.deep.equal([[true, true, false],
+                                     [true, true, false],
+                                     [false, false, false]]);
     });
   });
 });
+
+// describe('A evolution with', () => {
+//   describe('a minimal live seed ', () => {
+//     it('should evolve accordly', () => {
+//       const seed = [[false, false, false],
+//                     [true, true, true],
+//                     [false, false, false]];
+//       const next = nextGol(seed);
+
+//       expect(next).to.be.deep.equal([[false, true, false],
+//                                      [false, true, false],
+//                                      [false, true, false]]);
+
+//       expect(next).to.be.deep.equal([[false, false, false],
+//                                      [false, false, false],
+//                                      [false, false, false]]);
+//     });
+//   });
+// });
