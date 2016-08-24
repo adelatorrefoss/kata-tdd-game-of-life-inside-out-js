@@ -28,34 +28,36 @@ function lives(iAmAlive, numAlive) {
 }
 
 function getNeighbours(i, j, grid) {
-  // const numRows = grid.length;
-  // const numCols = grid[0].length;
+  const numRows = grid.length;
+  const numCols = grid[0].length;
+
+   // const neighbours = [];
+  // neighbours.push(grid[i - 1][j - 1]);
+  // neighbours.push(grid[i - 1][j]);
+  // neighbours.push(grid[i - 1][j + 1]);
+  // neighbours.push(grid[i][j - 1]);
+  // neighbours.push(grid[i][j + 1]);
+  // neighbours.push(grid[i + 1][j - 1]);
+  // neighbours.push(grid[i + 1][j]);
+  // neighbours.push(grid[i + 1][j + 1]);
+
+  const isValidPosition = (x, y) => {
+    if (x >= 0 && x < numRows && y >= 0 && y < numCols) {
+      return true;
+    }
+    return false;
+  };
 
   const neighbours = [];
-  neighbours.push(grid[i - 1][j - 1]);
-  neighbours.push(grid[i - 1][j]);
-  neighbours.push(grid[i - 1][j + 1]);
-  neighbours.push(grid[i][j - 1]);
-  neighbours.push(grid[i][j + 1]);
-  neighbours.push(grid[i + 1][j - 1]);
-  neighbours.push(grid[i + 1][j]);
-  neighbours.push(grid[i + 1][j + 1]);
-
-  // const isValidPosition = (x, y) => {
-  //   if (x >= 0 && x < numRows && y >= 0 && y < numCols) {
-  //     return true;
-  //   }
-  //   return false;
-  // };
-
-  // const neighbours = [];
-  // for (let m = -1; m === 1; m++) {
-  //   for (let n = -1; n === 1; n++) {
-  //     if (isValidPosition(i + m, j + n)) {
-  //       neighbours.push(grid[i + m][j + n]);
-  //     }
-  //   }
-  // }
+  for (let m = -1; m <= 1; m++) {
+    for (let n = -1; n <= 1; n++) {
+      // if (isValidPosition(i + m, j + n)) {
+      if (!(m === 0 && n === 0)) {
+        neighbours.push(grid[i + m][j + n]);
+      }
+      // }
+    }
+  }
   return neighbours;
 }
 
@@ -225,4 +227,15 @@ describe('Given a grid that is', () => {
                                            true, false, true]);
     });
   });
+
+  //   describe('a neighbourhood with a cell in the upper left corner and some sorrounding', () => {
+  //   it('returns neighbours', () => {
+  //     const seed = [[true, true, true],
+  //                   [true, true, true],
+  //                   [true, false, true]];
+  //     const neighbours = getNeighbours(0, 0, seed);
+
+  //     expect(neighbours).to.be.deep.equal([true, true, true]);
+  //   });
+  // })
 });
