@@ -214,16 +214,16 @@ describe('Given a grid that is', () => {
     });
   });
 
-  // describe('a single live cell', () => {
-  //   it('should die', () => {
-  //     const seed = [[false, false, false],
-  //                   [false, true, false],
-  //                   [false, false, false]];
-  //     const next = nextGol(seed);
+  describe('a single live cell', () => {
+    it('should die', () => {
+      const seed = [[false, false, false],
+                    [false, true, false],
+                    [false, false, false]];
+      const next = nextGol(seed);
 
-  //     expect(next).to.be.deep.equal(emptyGrid);
-  //   });
-  // });
+      expect(next).to.be.deep.equal(emptyGrid);
+    });
+  });
 
   // // TODO: 2 cells not neighbours
 
