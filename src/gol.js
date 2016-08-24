@@ -1,7 +1,7 @@
 // production code
 'use strict';
 
-// const R = require('../node_modules/ramda/dist/ramda');
+var R = require('ramda');
 
 const emptyGrid = [[false, false, false],
                    [false, false, false],
@@ -98,14 +98,7 @@ function evolution(seed, print) {
   return [next, i];
 }
 
-// const main = () => {
-//   process.argv.forEach((val, index) => {
-//     console.log(`${index}: ${val}`);
-//   });
-// };
+// export
 
-// if (require.main === module) {
-//   main();
-// }
-
-export { emptyGrid, evolution, nextGol, getNeighbours, lives };
+module.exports =
+ { emptyGrid, evolution, nextGol, getNeighbours, lives };

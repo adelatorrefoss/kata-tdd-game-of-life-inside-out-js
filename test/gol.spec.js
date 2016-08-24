@@ -2,7 +2,12 @@
 
 chai.config.truncateThreshold = 0;
 
-import { emptyGrid, evolution, nextGol, getNeighbours, lives } from '../src/gol';
+var g = require('../src/gol');
+var emptyGrid = g.emptyGrid;
+var evolution = g.evolution;
+var nextGol = g.nextGol;
+var getNeighbours = g.getNeighbours;
+var lives = g.lives;
 
 // tests
 
