@@ -217,17 +217,17 @@ describe('Given a grid that is', () => {
 
   // // TODO: 2 cells not neighbours
 
-  // describe('a minimal live config', () => {
-  //   it('should lives ', () => {
-  //     const seed = [[false, false, false],
-  //                   [true, true, true],
-  //                   [false, false, false]];
-  //     const next = nextGol(seed);
+  describe('a minimal live config', () => {
+    it('should lives ', () => {
+      const seed = [[false, false, false],
+                    [true, true, true],
+                    [false, false, false]];
+      const next = nextGol(seed);
 
-  //     expect(next).to.be.deep.equal([[false, false, false],
-  //                                    [false, true, false],
-  //                                    [false, false, false]]);
-  //   });
-  // });
+      expect(next).to.be.deep.equal([[false, false, false],
+                                     [false, true, false],
+                                     [false, false, false]]);
+    });
+  });
 
 });
