@@ -11,4 +11,4 @@ npm install
 
 ## run
 
-node src/run.js [[true, false, true],[false,true, true],[false,true,false]] true
+node src/run.js "[[true, false, true],[false,true, true],[false,true,false]]" true
