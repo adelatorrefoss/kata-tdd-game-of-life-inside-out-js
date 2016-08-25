@@ -7,7 +7,7 @@ npm install
 
 ## tests
 
-./karma-start.sh
+./karma.start.sh
 
 ## run
 
