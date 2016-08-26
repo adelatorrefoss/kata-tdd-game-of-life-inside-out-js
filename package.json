@@ -31,6 +31,6 @@
     "ramda": "^0.22.1"
   },
   "scripts": {
-    "test": "./karma.start.sh"
+    "test": "./node_modules/karma/bin/karma start --single-run"
   }
 }
