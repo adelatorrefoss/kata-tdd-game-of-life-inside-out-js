@@ -1,5 +1,5 @@
 {
-  "name": "Game of Life Kata",
+  "name": "GameoLifeKata",
   "version": "0.0.1",
   "devDependencies": {
     "babel-cli": "^6.11.4",
