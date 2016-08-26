@@ -1,5 +1,5 @@
 {
-  "name": "TestJS",
+  "name": "Game of Life Kata",
   "version": "0.0.1",
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -31,6 +31,6 @@
     "ramda": "^0.22.1"
   },
   "scripts": {
-    "build": "node_modules/babel-cli/bin/babel src/run.js -o compiled.js"
+    "test": "./karma.start.sh"
   }
 }
